@@ -1,0 +1,40 @@
+{
+  "name": "swint-middleware",
+  "version": "0.1.0",
+  "description": "Essential expressJS middlewares and general middleware loader for Swint",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "eslint lib && mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KnowRe/swint-middleware.git"
+  },
+  "keywords": [
+    "swint",
+    "middleware",
+    "express"
+  ],
+  "author": "Kurt Cho <kivoloid@gmail.com>",
+  "contributors": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KnowRe/swint-middleware/issues"
+  },
+  "homepage": "https://github.com/KnowRe/swint-middleware",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "connect-redis": "^3.0.0",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "express-session": "^1.11.3",
+    "method-override": "^2.3.5",
+    "multer": "^1.0.6",
+    "serve-favicon": "^2.3.0",
+    "swint-helper": "^0.1.7"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "eslint": "*"
+  }
+}
