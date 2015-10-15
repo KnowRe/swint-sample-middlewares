@@ -7,3 +7,23 @@ Essential expressJS middlewares and general middleware loader for Swint
 ```sh
 $ npm install --save swint-middleware
 ```
+
+## Loader
+### Options
+* `dir` : `String`, default: `path.dirname(require.main.filename)`
+* `walkOption` : `Object`, default: `{ ext: 'js' }`
+
+### Usage
+```javascript
+var middlewares = loader({
+	dir: path.join(__dirname, 'middlewares')
+}); // { middlewareA: [Function], middlewareB: [Function], ... }
+```
+
+## Middlewares
+### Usage
+```javascript
+app.use(myMiddleware(options));
+```
+
+* `myMiddleware()` (not `myMiddleware` itself) gets three arguments, which is `req`, `res`, `next`.
