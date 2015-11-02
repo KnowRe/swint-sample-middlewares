@@ -81,7 +81,9 @@ describe('CORS', function() {
 			}
 		});
 
-		app.use(swintMiddleware.middlewares.cors());
+		app.use(swintMiddleware.middlewares.cors({
+			allowedOrigins: ['http://localhost:8080', 'http://example.com']
+		}));
 
 		app.get('/', function(req, res) {
 			res.send('');
@@ -94,9 +96,12 @@ describe('CORS', function() {
 	it('Check header', function(done) {
 		request.get({
 			url: 'http://localhost:8080/',
-			followRedirect: false
+			followRedirect: false,
+			headers: {
+				origin: 'http://example.com'
+			}
 		}, function(err, resp, body) {
-			assert.equal(resp.headers['access-control-allow-origin'], 'http://localhost');
+			assert.equal(resp.headers['access-control-allow-origin'], 'http://example.com');
 			assert.equal(resp.headers['access-control-allow-headers'], 'Origin, X-Requested-With, Content-Type, Accept');
 			assert.equal(resp.headers['access-control-allow-credentials'], 'true');
 			done();
