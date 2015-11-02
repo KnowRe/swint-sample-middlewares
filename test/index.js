@@ -4,7 +4,7 @@ var assert = require('assert'),
 	request = require('request'),
 	swintMiddleware = require('../lib');
 
-// global.swintVar.printLevel = 5;
+global.swintVar.printLevel = 5;
 
 describe('Loader test', function() {
 	it('Default loads', function() {
@@ -27,6 +27,45 @@ describe('Loader test', function() {
 		});
 
 		assert.equal(loaded.length, middlewares.length);
+	});
+});
+
+describe('favicon', function() {
+	var server;
+
+	before(function() {
+		var app = express();
+
+		app.set('config', {
+			http: {
+				validHost: ['localhost']
+			}
+		});
+
+		app.use(swintMiddleware.middlewares.favicon({}));
+
+		app.get('/', function(req, res) {
+			res.send('');
+		});
+
+		server = http.createServer(app);
+		server.listen(8080);
+	});
+
+	it('Check favicon size', function(done) {
+		request.get({
+			url: 'http://localhost:8080/favicon.ico',
+			followRedirect: false
+		}, function(err, resp, body) {
+			assert(resp.headers['content-length'], '837');
+			done();
+		});
+	});
+
+	after(function(done) {
+		server.close(function() {
+			done();
+		});
 	});
 });
 
