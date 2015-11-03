@@ -23,7 +23,14 @@ describe('Loader test', function() {
 
 		middlewares.forEach(function(m) {
 			assert.notEqual(loaded.indexOf(m), -1);
-			assert.equal(swintMiddleware.middlewares[m]({}).length, 3);
+
+			if(swintMiddleware.middlewares[m].length === 3) {
+				assert(true);
+			} else if(swintMiddleware.middlewares[m].length <= 1) {
+				assert.equal(swintMiddleware.middlewares[m]({}).length, 3);
+			} else {
+				assert(false);
+			}
 		});
 
 		assert.equal(loaded.length, middlewares.length);
@@ -180,7 +187,7 @@ describe('swint style api', function() {
 	before(function() {
 		var app = express();
 
-		app.use(swintMiddleware.middlewares['swint-style-api']());
+		app.use(swintMiddleware.middlewares['swint-style-api']);
 
 		app.get('/', function(req, res, next) {
 			req.out('foo', 'bar');
