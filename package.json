@@ -1,6 +1,6 @@
 {
   "name": "swint-middleware",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Essential expressJS middlewares and general middleware loader for Swint",
   "main": "lib/index.js",
   "scripts": {
