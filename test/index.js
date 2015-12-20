@@ -11,6 +11,7 @@ describe('Loader test', function() {
 		var loaded = Object.keys(swintMiddleware.middlewares),
 			middlewares = [
 				'body-parser',
+				'check-hash',
 				'cookie-parser',
 				'cors',
 				'favicon',
@@ -264,6 +265,80 @@ describe('swint style api', function() {
 
 	after(function(done) {
 		server.close(function() {
+			done();
+		});
+	});
+});
+
+describe('check-hash', function() {
+	it('basic success', function(done) {
+		var checkHash = swintMiddleware.middlewares['check-hash'],
+			checkHashFunc = checkHash({
+				keys: ['C7tO1ClvR/Gz7jJ']
+			}),
+			req = {
+				headers: {
+					'X-Swint-Key': 'C7tO1ClvR/Gz7jJ',
+					'X-Swint-Secret': 'cEVEf3Ka3XwijpAH2vMYdD98x'
+				}
+			};
+
+		checkHashFunc(req, {}, function() {
+			assert(req.swintCheckHash);
+			done();
+		});
+	});
+
+	it('key length fail', function(done) {
+		var checkHash = swintMiddleware.middlewares['check-hash'],
+			checkHashFunc = checkHash({
+				keys: ['C7tO1ClvR/Gz7j']
+			}),
+			req = {
+				headers: {
+					'X-Swint-Key': 'C7tO1ClvR/Gz7j',
+					'X-Swint-Secret': 'cEVEf3Ka3XwijpAH2vMYdD98x'
+				}
+			};
+
+		checkHashFunc(req, {}, function() {
+			assert(!req.swintCheckHash);
+			done();
+		});
+	});
+
+	it('key fail', function(done) {
+		var checkHash = swintMiddleware.middlewares['check-hash'],
+			checkHashFunc = checkHash({
+				keys: []
+			}),
+			req = {
+				headers: {
+					'X-Swint-Key': 'C7tO1ClvR/Gz7jJ',
+					'X-Swint-Secret': 'cEVEf3Ka3XwijpAH2vMYdD98x'
+				}
+			};
+
+		checkHashFunc(req, {}, function() {
+			assert(!req.swintCheckHash);
+			done();
+		});
+	});
+
+	it('secret fail', function(done) {
+		var checkHash = swintMiddleware.middlewares['check-hash'],
+			checkHashFunc = checkHash({
+				keys: []
+			}),
+			req = {
+				headers: {
+					'X-Swint-Key': 'C7tO1ClvR/Gz7jJ',
+					'X-Swint-Secret': 'cEVEf3Ka3XwijpAH2vMYdD98y'
+				}
+			};
+
+		checkHashFunc(req, {}, function() {
+			assert(!req.swintCheckHash);
 			done();
 		});
 	});
