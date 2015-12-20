@@ -278,8 +278,8 @@ describe('check-hash', function() {
 			}),
 			req = {
 				headers: {
-					'X-Swint-Key': 'C7tO1ClvR/Gz7jJ',
-					'X-Swint-Secret': 'cEVEf3Ka3XwijpAH2vMYdD98x'
+					'x-swint-key': 'C7tO1ClvR/Gz7jJ',
+					'x-swint-secret': 'cEVEf3Ka3XwijpAH2vMYdD98x'
 				}
 			};
 
@@ -296,8 +296,8 @@ describe('check-hash', function() {
 			}),
 			req = {
 				headers: {
-					'X-Swint-Key': 'C7tO1ClvR/Gz7j',
-					'X-Swint-Secret': 'cEVEf3Ka3XwijpAH2vMYdD98x'
+					'x-swint-key': 'C7tO1ClvR/Gz7j',
+					'x-swint-secret': 'cEVEf3Ka3XwijpAH2vMYdD98x'
 				}
 			};
 
@@ -314,8 +314,8 @@ describe('check-hash', function() {
 			}),
 			req = {
 				headers: {
-					'X-Swint-Key': 'C7tO1ClvR/Gz7jJ',
-					'X-Swint-Secret': 'cEVEf3Ka3XwijpAH2vMYdD98x'
+					'x-swint-key': 'C7tO1ClvR/Gz7jJ',
+					'x-swint-secret': 'cEVEf3Ka3XwijpAH2vMYdD98x'
 				}
 			};
 
@@ -332,8 +332,8 @@ describe('check-hash', function() {
 			}),
 			req = {
 				headers: {
-					'X-Swint-Key': 'C7tO1ClvR/Gz7jJ',
-					'X-Swint-Secret': 'cEVEf3Ka3XwijpAH2vMYdD98y'
+					'x-swint-key': 'C7tO1ClvR/Gz7jJ',
+					'x-swint-secret': 'cEVEf3Ka3XwijpAH2vMYdD98y'
 				}
 			};
 
