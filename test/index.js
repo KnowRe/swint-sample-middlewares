@@ -4,7 +4,7 @@ var assert = require('assert'),
 	request = require('request'),
 	swintMiddleware = require('../lib');
 
-global.swintVar.printLevel = 5;
+// global.swintVar.printLevel = 5;
 
 describe('Loader test', function() {
 	it('Default loads', function() {
@@ -234,6 +234,7 @@ describe('swint style api', function() {
 	before(function() {
 		var app = express();
 
+		app.use(swintMiddleware.middlewares['log-start']());
 		app.use(swintMiddleware.middlewares['swint-style-api']);
 
 		app.get('/', function(req, res, next) {
@@ -242,13 +243,28 @@ describe('swint style api', function() {
 			next();
 		});
 
+		app.use(swintMiddleware.middlewares['log-end']());
+
 		server = http.createServer(app);
 		server.listen(8080);
 	});
 
 	it('Check header', function(done) {
 		request.get({
-			url: 'http://localhost:8080/',
+			url: 'http://localhost:8080/?input=' + JSON.stringify({
+				pass: 'foo1',
+				key: 'bar1',
+				lv1: {
+					pwd: 'foo2',
+					secret: 'bar2',
+					lv2: {
+						pw: 'foo3',
+						lv3: {
+							password: 'foo4'
+						}
+					}
+				}
+			}),
 			followRedirect: false
 		}, function(err, resp, body) {
 			assert.deepEqual(JSON.parse(body), {
