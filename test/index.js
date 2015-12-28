@@ -4,7 +4,7 @@ var assert = require('assert'),
 	request = require('request'),
 	swintMiddleware = require('../lib');
 
-// global.swintVar.printLevel = 5;
+global.swintVar.printLevel = 5;
 
 describe('Loader test', function() {
 	it('Default loads', function() {
