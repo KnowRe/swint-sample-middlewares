@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/KnowRe/swint-middleware.git"
+    "url": "https://github.com/KnowRe-Dev/swint-middleware.git"
   },
   "keywords": [
     "swint",
@@ -19,12 +19,12 @@
   "contributors": [],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/KnowRe/swint-middleware/issues"
+    "url": "https://github.com/KnowRe-Dev/swint-middleware/issues"
   },
   "engines": {
     "node": ">=4.0.0"
   },
-  "homepage": "https://github.com/KnowRe/swint-middleware",
+  "homepage": "https://github.com/KnowRe-Dev/swint-middleware",
   "dependencies": {
     "body-parser": "^1.14.2",
     "connect-redis": "^3.0.2",
