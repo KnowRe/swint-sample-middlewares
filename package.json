@@ -26,19 +26,19 @@
   },
   "homepage": "https://github.com/KnowRe-Dev/swint-middleware",
   "dependencies": {
-    "body-parser": "^1.15.0",
+    "body-parser": "^1.15.1",
     "connect-redis": "^3.0.2",
-    "cookie-parser": "^1.4.1",
+    "cookie-parser": "^1.4.3",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
-    "method-override": "^2.3.5",
+    "method-override": "^2.3.6",
     "multer": "^1.1.0",
     "serve-favicon": "^2.3.0",
     "swint-helper": "1.x"
   },
   "devDependencies": {
-    "mocha": "^2.4.5",
-    "eslint": "^2.6.0",
-    "request": "^2.69.0"
+    "mocha": "^2.5.3",
+    "eslint": "^2.11.1",
+    "request": "^2.72.0"
   }
 }
