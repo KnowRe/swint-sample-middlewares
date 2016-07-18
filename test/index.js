@@ -15,6 +15,7 @@ describe('Loader test', function() {
 				'cookie-parser',
 				'cors',
 				'favicon',
+				'jwt',
 				'log-end',
 				'log-start',
 				'method-override',
@@ -271,6 +272,7 @@ describe('swint style api', function() {
 				success: true,
 				session: false,
 				error: null,
+				token: false,
 				data: {
 					foo: "bar"
 				}
@@ -355,6 +357,26 @@ describe('check-hash', function() {
 
 		checkHashFunc(req, {}, function() {
 			assert(!req.swintCheckHash);
+			done();
+		});
+	});
+});
+
+describe('jwt', function() {
+	it('jwt basic', function(done) {
+		var jwt = require('jsonwebtoken'),
+			token = jwt.sign({ foo: 'bar' }, 'SwintIsForTwins', { expiresIn: '1d' });
+			jwtMid = swintMiddleware.middlewares['jwt'],
+			jwtFunc = jwtMid({}),
+			req = {
+				headers: {
+					authorization: 'Bearer ' + token
+				},
+				output: {}
+			};
+
+		jwtFunc(req, {}, function() {
+			assert(req.output.token);
 			done();
 		});
 	});

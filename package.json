@@ -31,6 +31,7 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
+    "jsonwebtoken": "^7.1.6",
     "method-override": "^2.3.6",
     "multer": "^1.1.0",
     "serve-favicon": "^2.3.0",
