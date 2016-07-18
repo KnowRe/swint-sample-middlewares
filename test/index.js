@@ -371,12 +371,11 @@ describe('jwt', function() {
 			req = {
 				headers: {
 					authorization: 'Bearer ' + token
-				},
-				output: {}
+				}
 			};
 
 		jwtFunc(req, {}, function() {
-			assert(req.output.token);
+			assert(req.token);
 			done();
 		});
 	});
