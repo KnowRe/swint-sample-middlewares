@@ -29,7 +29,7 @@
     "body-parser": "1.18.1",
     "connect-redis": "3.3.0",
     "cookie-parser": "1.4.3",
-    "express": "4.15.4",
+    "express": "5.0.0-alpha.6",
     "express-session": "1.15.5",
     "jsonwebtoken": "8.0.1",
     "method-override": "2.3.9",
