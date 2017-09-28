@@ -27,7 +27,7 @@
   "homepage": "https://github.com/KnowRe-Dev/swint-middleware",
   "dependencies": {
     "body-parser": "1.18.1",
-    "connect-redis": "3.3.0",
+    "connect-redis": "3.3.1",
     "cookie-parser": "1.4.3",
     "express": "4.15.4",
     "express-session": "1.15.5",
